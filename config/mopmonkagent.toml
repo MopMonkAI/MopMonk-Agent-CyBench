@@ -1,0 +1,6 @@
+[provider]
+base_url = "https://api.deepseek.com"
+model = "deepseek-flash"
+api_key_env = "DEEPSEEK_API_KEY"
+wire_api = "responses"
+reasoning_effort = "max"

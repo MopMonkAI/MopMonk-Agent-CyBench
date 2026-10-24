@@ -1,0 +1,10 @@
+{
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-v4.1-flash",
+  "config_model_alias": "deepseek-flash",
+  "context_tokens": 1048576,
+  "reasoning_effort": "max",
+  "wire_api": "responses",
+  "api_key_env": "DEEPSEEK_API_KEY"
+}

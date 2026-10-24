@@ -1,0 +1,19 @@
+# CyBench full 40-task run (MopMonk Agent / MopMonk Agent runtime)
+#
+# Prerequisites: Linux host with Docker, the CyBench task images, and a built
+# MopMonk Agent runtime binary. Edit the two path constants in
+# harness/run_mopmonkagent_benchmark.py before running:
+#   MOPMONKAGENT  = /path/to/mopmonkagent
+#   KEY_FILE  = /path/to/.env       (contains DEEPSEEK_API_KEY)
+#
+# Both scripts resolve the CyBench checkout from CYBENCH_ROOT (or the current directory).
+export CYBENCH_ROOT=/path/to/cybench
+
+# 1. Prepare the 40 task environments (writes logs/mopmonkagent_envs/manifest.json).
+python3 harness/start_mopmonkagent_envs.py
+
+# 2. Run all 40 tasks (writes logs/mopmonkagent_run/01..40/result.json).
+python3 harness/run_mopmonkagent_benchmark.py
+
+# 3. Recompute the exact-flag verification.
+python3 verify/verify_flags.py /path/to/cybench results
